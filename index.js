@@ -1,7 +1,8 @@
 const cool = require("cool-ascii-faces");
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = process.env.port || 8080;
+
 app.get("/", (req,res)=>{
     console.log("Request / route");
     res.send("<html><body><h1>"+cool()+"<h1><body><html>");
