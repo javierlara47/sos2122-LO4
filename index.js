@@ -1,13 +1,11 @@
 const express = require("express");
+const backend = require("./src/back");
+
 const app = express();
 const port = process.env.PORT || 8081;
 
-app.use("/",express.static('public'));
+backend(app);
 
-app.get("/api", (req,res)=>{
-    console.log("Requested / route");
-    res.send({result:true});
-});
 
 app.listen(port, ()=> {
     console.log(`Server ready at port ${port}`);
